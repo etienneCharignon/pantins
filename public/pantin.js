@@ -2,17 +2,17 @@ const parts = [
   {
     id: 'tete',
     label: 'Tête',
-    images: ['tete1.jpg', 'tete2.jpg', 'tete3.jpg'],
+    images: ['tete1.png', 'tete2.png', 'tete3.png'],
   },
   {
     id: 'corp',
     label: 'Corps',
-    images: ['corps1.jpg', 'corps2.jpg', 'corps3.jpg'],
+    images: ['corps1.png', 'corps2.png', 'corps3.png'],
   },
   {
     id: 'pied',
     label: 'Pieds',
-    images: ['pieds1.jpg', 'pieds2.jpg', 'pieds3.jpg'],
+    images: ['pieds1.png', 'pieds2.png', 'pieds3.png'],
   },
 ];
 

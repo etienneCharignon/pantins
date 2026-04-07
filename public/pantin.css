@@ -1,5 +1,6 @@
 :root {
   --pantin-height: 600px;
+  --pantin-bg: #E2E0D8;
 }
 
 * {
@@ -47,6 +48,7 @@ h1 {
   display: block;
   /* supprime l'espace sous l'image (inline baseline) */
   vertical-align: bottom;
+  background: var(--pantin-bg);
 }
 
 /* Pas d'espace entre les parties */

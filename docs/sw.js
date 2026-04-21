@@ -1,10 +1,11 @@
-const CACHE = 'pantins-v1';
+const CACHE = 'pantins-v2';
 const ASSETS = [
   '.',
   'index.html',
   'pantin.css',
   'pantin.js',
   'manifest.json',
+  'apple-touch-icon.png',
   'tete1.png', 'tete2.png', 'tete3.png',
   'corps1.png', 'corps2.png', 'corps3.png',
   'pieds1.png', 'pieds2.png', 'pieds3.png',

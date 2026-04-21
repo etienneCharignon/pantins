@@ -65,7 +65,8 @@ function build() {
     function onDragEnd(x) {
       if (dragStartX === null) return;
       const dx = x - dragStartX;
-      goTo(part.id, Math.abs(dx) > 40 ? state[part.id] + (dx < 0 ? 1 : -1) : state[part.id]);
+      const next = Math.abs(dx) > 40 ? state[part.id] + (dx < 0 ? 1 : -1) : state[part.id];
+      goTo(part.id, Math.max(0, Math.min(part.images.length - 1, next)));
       dragStartX = null;
     }
 

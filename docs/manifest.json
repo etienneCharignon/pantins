@@ -1,0 +1,12 @@
+{
+  "name": "Les pantins de Bernadette",
+  "short_name": "Pantins",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#1a1a2e",
+  "icons": [
+    { "src": "tete1.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "tete1.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

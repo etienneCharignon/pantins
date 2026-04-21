@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Les pantins</title>
   <link rel="icon" type="image/png" href="tete1.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1a1a2e">
   <link rel="stylesheet" href="pantin.css">
 </head>
 
@@ -20,6 +22,9 @@
 
   <a class="info-link" href="https://bernadettedespres.fr" target="_blank" rel="noopener" aria-label="Site de Bernadette Desprès">i</a>
   <script src="pantin.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+  </script>
 </body>
 
 </html>

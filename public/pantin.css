@@ -43,9 +43,19 @@ h1 {
   gap: 1rem;
 }
 
-.part img {
+.part-viewport {
+  width: calc(var(--pantin-height) / 3);
+  overflow: hidden;
+}
+
+.part-strip {
+  display: flex;
+}
+
+.part-strip img {
   width: calc(var(--pantin-height) / 3);
   height: calc(var(--pantin-height) / 3);
+  flex-shrink: 0;
   object-fit: cover;
   display: block;
   background: var(--pantin-bg);

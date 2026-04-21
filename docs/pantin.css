@@ -134,3 +134,32 @@ button.arrow:hover {
   background: var(--color-text);
   color: var(--color-bg);
 }
+
+@media (max-height: 780px) {
+  body {
+    height: 100dvh;
+    min-height: unset;
+    padding: 0.5rem 1rem;
+    /* pour éviter les scollbar si les images dépassent très légèrement */
+    overflow: hidden;
+  }
+
+  h1 {
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+  }
+
+  :root {
+    --pantin-height: calc(100dvh - 2.5rem);
+  }
+
+  button.arrow,
+  .dots {
+    display: none;
+  }
+
+  .part {
+    gap: 0;
+  }
+}

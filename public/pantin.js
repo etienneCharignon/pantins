@@ -53,24 +53,29 @@ function build() {
 
     viewport.appendChild(strip);
 
-    let touchStartX = null;
+    let dragStartX = null;
 
-    viewport.addEventListener('touchstart', e => {
-      touchStartX = e.touches[0].clientX;
-    }, { passive: true });
-
-    viewport.addEventListener('touchmove', e => {
-      if (touchStartX === null) return;
-      const dx = e.touches[0].clientX - touchStartX;
-      setPosition(part.id, state[part.id], dx);
-    }, { passive: true });
-
-    viewport.addEventListener('touchend', e => {
-      if (touchStartX === null) return;
-      const dx = e.changedTouches[0].clientX - touchStartX;
+    function onDragStart(x) {
+      dragStartX = x;
+    }
+    function onDragMove(x) {
+      if (dragStartX === null) return;
+      setPosition(part.id, state[part.id], x - dragStartX);
+    }
+    function onDragEnd(x) {
+      if (dragStartX === null) return;
+      const dx = x - dragStartX;
       goTo(part.id, Math.abs(dx) > 40 ? state[part.id] + (dx < 0 ? 1 : -1) : state[part.id]);
-      touchStartX = null;
-    }, { passive: true });
+      dragStartX = null;
+    }
+
+    viewport.addEventListener('touchstart', e => onDragStart(e.touches[0].clientX), { passive: true });
+    viewport.addEventListener('touchmove', e => onDragMove(e.touches[0].clientX), { passive: true });
+    viewport.addEventListener('touchend', e => onDragEnd(e.changedTouches[0].clientX), { passive: true });
+
+    viewport.addEventListener('mousedown', e => { e.preventDefault(); onDragStart(e.clientX); });
+    window.addEventListener('mousemove', e => onDragMove(e.clientX));
+    window.addEventListener('mouseup', e => onDragEnd(e.clientX));
 
     const btnNext = document.createElement('button');
     btnNext.className = 'arrow';

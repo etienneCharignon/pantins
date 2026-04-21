@@ -46,6 +46,12 @@ h1 {
 .part-viewport {
   width: calc(var(--pantin-height) / 3);
   overflow: hidden;
+  cursor: grab;
+  user-select: none;
+}
+
+.part-viewport:active {
+  cursor: grabbing;
 }
 
 .part-strip {

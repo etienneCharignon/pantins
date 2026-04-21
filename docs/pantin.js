@@ -1,10 +1,10 @@
 const parts = [
   { id: 'tete', label: 'Tête', images: ['tete1.png', 'tete2.png', 'tete3.png'] },
-  { id: 'corp', label: 'Corps', images: ['corps1.png', 'corps2.png', 'corps3.png'] },
-  { id: 'pied', label: 'Pieds', images: ['pieds1.png', 'pieds2.png', 'pieds3.png'] },
+  { id: 'corps', label: 'Corps', images: ['corps1.png', 'corps2.png', 'corps3.png'] },
+  { id: 'pieds', label: 'Pieds', images: ['pieds1.png', 'pieds2.png', 'pieds3.png'] },
 ];
 
-const state = { tete: 0, corp: 0, pied: 0 };
+const state = { tete: 0, corps: 0, pieds: 0 };
 const strips = {};
 
 function setPosition(partId, index, dragOffset = 0, animate = false) {
@@ -23,6 +23,19 @@ function goTo(partId, index) {
   });
 }
 
+function buildArrow(label, partId, direction) {
+  const btn = document.createElement('button');
+  btn.className = 'arrow';
+  btn.textContent = direction > 0 ? '›' : '‹';
+  let labelDirection = direction > 0 ? "suivant" : "précédent"
+  if (partId == 'tete') {
+    labelDirection += 'e'
+  }
+  btn.setAttribute('aria-label', `${label} ${labelDirection}`);
+  btn.addEventListener('click', () => goTo(partId, state[partId] + direction));
+  return btn;
+}
+
 function build() {
   const pantin = document.getElementById('pantin');
   pantin.innerHTML = '';
@@ -30,12 +43,6 @@ function build() {
   parts.forEach(part => {
     const row = document.createElement('div');
     row.className = 'part';
-
-    const btnPrev = document.createElement('button');
-    btnPrev.className = 'arrow';
-    btnPrev.textContent = '‹';
-    btnPrev.setAttribute('aria-label', `${part.label} précédente`);
-    btnPrev.addEventListener('click', () => goTo(part.id, state[part.id] - 1));
 
     const viewport = document.createElement('div');
     viewport.className = 'part-viewport';
@@ -78,11 +85,8 @@ function build() {
     window.addEventListener('mousemove', e => onDragMove(e.clientX));
     window.addEventListener('mouseup', e => onDragEnd(e.clientX));
 
-    const btnNext = document.createElement('button');
-    btnNext.className = 'arrow';
-    btnNext.textContent = '›';
-    btnNext.setAttribute('aria-label', `${part.label} suivante`);
-    btnNext.addEventListener('click', () => goTo(part.id, state[part.id] + 1));
+    const btnPrev = buildArrow(part.label, part.id, -1);
+    const btnNext = buildArrow(part.label, part.id, +1);
 
     row.appendChild(btnPrev);
     row.appendChild(viewport);

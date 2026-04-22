@@ -111,7 +111,7 @@ button.arrow:hover {
   background: var(--color-text);
 }
 
-.info-link {
+.info-button {
   background: none;
   cursor: pointer;
   position: fixed;
@@ -132,7 +132,7 @@ button.arrow:hover {
   transition: background 0.15s, color 0.15s;
 }
 
-.info-link:hover {
+.info-button:hover {
   background: var(--color-text);
   color: var(--color-bg);
 }

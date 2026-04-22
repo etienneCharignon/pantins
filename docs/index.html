@@ -22,8 +22,17 @@
   <div class="dots" id="dots-corps"></div>
   <div class="dots" id="dots-pieds"></div>
 
-  <a class="info-link" href="https://bernadettedespres.fr" target="_blank" rel="noopener"
-    aria-label="Site de Bernadette Desprès">i</a>
+  <button class="info-link" aria-label="Informations"
+    onclick="document.getElementById('info-panel').showModal()">i</button>
+
+  <dialog id="info-panel">
+    <h2>Polichinelle (1970)</h2>
+    <p>Publié dans la revue <em>Pomme d'Api</em><br>
+      Encre et crayon (10×30 mm)</p>
+    <p>Faites glisser les images…</p>
+    <a href="https://bernadettedespres.fr" target="_blank" rel="noopener">bernadettedespres.fr</a>
+    <button class="close" onclick="document.getElementById('info-panel').close()" aria-label="Fermer">×</button>
+  </dialog>
   <script src="pantin.js"></script>
   <script>
     if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');

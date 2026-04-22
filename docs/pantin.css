@@ -112,6 +112,8 @@ button.arrow:hover {
 }
 
 .info-link {
+  background: none;
+  cursor: pointer;
   position: fixed;
   bottom: 1rem;
   right: 1rem;
@@ -133,6 +135,53 @@ button.arrow:hover {
 .info-link:hover {
   background: var(--color-text);
   color: var(--color-bg);
+}
+
+dialog {
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 2px solid var(--color-text);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  max-width: 320px;
+  width: calc(100% - 2rem);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+dialog h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+dialog p {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+dialog a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--color-text);
+  font-size: 0.9rem;
+}
+
+dialog .close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: var(--color-text);
+  font-size: 1.4rem;
+  cursor: pointer;
+  line-height: 1;
 }
 
 @media (max-height: 780px) {

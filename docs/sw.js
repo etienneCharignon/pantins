@@ -1,4 +1,4 @@
-const CACHE = 'pantins-v2';
+const CACHE = 'pantins-v3';
 const ASSETS = [
   '.',
   'index.html',

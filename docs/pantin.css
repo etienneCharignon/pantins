@@ -184,7 +184,7 @@ dialog .close {
   line-height: 1;
 }
 
-@media (max-height: 900px) {
+@media (display-mode: standalone) {
   body {
     height: 100dvh;
     min-height: unset;
